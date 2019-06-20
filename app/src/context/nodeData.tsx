@@ -81,7 +81,14 @@ export const useNodeData = () => {
             : undefined;
     }, [nodeWhitelist]);    
     
+    const dataReady = useMemo(
+        () =>
+            Array.isArray(nodeWhitelist),
+        [nodeWhitelist]
+    )
+
     return {
+        dataReady,
         whitelist: formattedNodeWhitelist,
         isReadOnly: nodeIsReadOnly
     }
