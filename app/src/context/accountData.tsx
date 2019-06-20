@@ -73,8 +73,9 @@ export const useAccountData = () => {
 
     const dataReady = useMemo(
         () =>
+            typeof accountIsReadOnly === "boolean" &&
             Array.isArray(accountWhitelist),
-        [accountWhitelist]
+        [accountIsReadOnly, accountWhitelist]
     )
 
     const formattedAccountWhitelist = useMemo(() => {

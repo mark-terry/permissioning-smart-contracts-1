@@ -15,6 +15,7 @@ import {
 } from "../../util/enodetools";
 // Components
 import EnodeTab from "../../components/EnodeTab/EnodeTab";
+import LoadingPage from "../../components/LoadingPage/LoadingPage";
 // Constants
 import {
     PENDING_ADDITION,
@@ -29,7 +30,7 @@ import {
 
 const EnodeTabContainer = ({ isOpen }) => {
     const { isAdmin, userAddress } = useData();
-    const { whitelist, isReadOnly } = useNodeData();
+    const { whitelist, isReadOnly, dataReady } = useNodeData();
 
     const {
         list,
@@ -166,7 +167,9 @@ const EnodeTabContainer = ({ isOpen }) => {
             });
     };
 
-    return (
+    return !dataReady ? (
+        <LoadingPage />
+    ) : (
         <EnodeTab
             list={list}
             userAddress={userAddress}

@@ -10,6 +10,7 @@ import { useAccountData } from "../../context/accountData";
 import useTab from "./useTab";
 // Components
 import AccountTab from "../../components/AccountTab/AccountTab";
+import LoadingPage from "../../components/LoadingPage/LoadingPage";
 // Constants
 import {PENDING_ADDITION,
 FAIL_ADDITION,
@@ -25,7 +26,7 @@ type AccountTabContainerProps = {
 
 const AccountTabContainer: React.FC<AccountTabContainerProps> = ({ isOpen }) => {
     const { isAdmin, userAddress } = useData();
-    const { whitelist, isReadOnly } = useAccountData();
+    const { whitelist, dataReady, isReadOnly } = useAccountData();
 
     const {
         list,
@@ -100,7 +101,9 @@ const AccountTabContainer: React.FC<AccountTabContainerProps> = ({ isOpen }) => 
             });
     };
 
-    return (
+    return (!dataReady ? 
+        <LoadingPage />
+        : 
         <AccountTab
             list={list}
             userAddress={userAddress}

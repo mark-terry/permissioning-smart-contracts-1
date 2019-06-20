@@ -83,8 +83,9 @@ export const useNodeData = () => {
     
     const dataReady = useMemo(
         () =>
+            typeof nodeIsReadOnly === "boolean" &&
             Array.isArray(nodeWhitelist),
-        [nodeWhitelist]
+        [nodeIsReadOnly, nodeWhitelist]
     )
 
     return {
