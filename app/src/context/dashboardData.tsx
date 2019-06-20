@@ -2,7 +2,6 @@
 import React, {
     createContext,
     useContext,
-    useEffect,
     useState,
     useMemo
 } from "react";
@@ -53,7 +52,7 @@ export const useData = () => {
         throw new Error("useData must be used within a DataProvider.");
     }
 
-    const { drizzle, useCacheCall } = drizzleReactHooks.useDrizzle();
+    const { useCacheCall } = drizzleReactHooks.useDrizzle();
     const { nodeWhitelist, accountWhitelist } = context;
     const nodeIsReadOnly: boolean = useCacheCall("NodeRules", "isReadOnly");
 
