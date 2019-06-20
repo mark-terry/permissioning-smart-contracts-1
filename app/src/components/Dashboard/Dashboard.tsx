@@ -1,6 +1,7 @@
 // Libs
 import React, { Fragment, memo } from "react";
 import PropTypes from "prop-types";
+import { AccountDataProvider } from "../../context/accountData"
 // Components
 import LoadingPage from "../LoadingPage/LoadingPage";
 import TabSelector from "./TabSelector";
@@ -13,7 +14,7 @@ import { ToastProvider } from "../../context/toasts";
 // Constants
 import { ACCOUNT_TAB, ADMIN_TAB, ENODE_TAB } from "../../constants/tabs";
 
-const Dashboard = ({ tab, setTab, dataReady }) => (
+const Dashboard: React.FC<any> = ({ tab, setTab, dataReady }) => (
     <Fragment>
         <TabSelector setTab={setTab} tab={tab} />
         {!dataReady ? (
@@ -21,7 +22,9 @@ const Dashboard = ({ tab, setTab, dataReady }) => (
         ) : (
             <ToastProvider>
                 <Toasts />
-                <AccountTab isOpen={tab === ACCOUNT_TAB} />
+                <AccountDataProvider>
+                    <AccountTab isOpen={tab === ACCOUNT_TAB} />
+                </AccountDataProvider>
                 <AdminTab isOpen={tab === ADMIN_TAB} />
                 <EnodeTab isOpen={tab === ENODE_TAB} />
             </ToastProvider>
