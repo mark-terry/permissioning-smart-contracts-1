@@ -3,7 +3,7 @@ import React from "react";
 import toJson from "enzyme-to-json";
 import { shallow } from "enzyme";
 // Components
-import { DataProvider } from "../data";
+import { DataProvider } from "../dashboardData";
 
 describe("<DataProvider />", () => {
     let wrapper;

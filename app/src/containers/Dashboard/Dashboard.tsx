@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // Components
 import Dashboard from "../../components/Dashboard/Dashboard";
 // Context
-import { useData } from "../../context/data";
+import { useData } from "../../context/dashboardData";
 // Constant
 import { ACCOUNT_TAB } from "../../constants/tabs";
 

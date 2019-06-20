@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { drizzleReactHooks } from "drizzle-react";
 import { isAddress } from "web3-utils";
 // Context
-import { useData } from "../../context/data";
+import { useData } from "../../context/dashboardData";
 // Utils
 import useTab from "./useTab";
 // Components

@@ -13,7 +13,7 @@ import { ToastProvider } from "../../../context/toasts";
 // Constants
 import { ADMIN_TAB, ENODE_TAB } from "../../../constants/tabs";
 // Context
-import { useData } from "../../../context/data";
+import { useData } from "../../../context/dashboardData";
 
 jest.mock("../../../context/data", () => {
     return {

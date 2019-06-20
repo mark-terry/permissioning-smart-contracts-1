@@ -11,7 +11,7 @@ import WrongNetworkFlash from "./components/Flashes/WrongNetwork";
 import theme from "./constants/theme";
 // Context
 import { NetworkProvider } from "./context/network";
-import { DataProvider } from "./context/data";
+import { DataProvider } from "./context/dashboardData";
 
 const App: React.FC = () => (
     <ThemeProvider theme={theme}>

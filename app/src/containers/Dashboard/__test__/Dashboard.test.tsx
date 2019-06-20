@@ -5,7 +5,7 @@ import { shallow, ShallowWrapper } from "enzyme";
 // Components
 import DashboardContainer from "../Dashboard";
 // Context
-import { useData } from "../../../context/data";
+import { useData } from "../../../context/dashboardData";
 
 jest.mock("../../../context/data", () => {
     return {

@@ -2,6 +2,7 @@
 import React, { Fragment, memo } from "react";
 import PropTypes from "prop-types";
 import { AccountDataProvider } from "../../context/accountData"
+import { NodeDataProvider } from "../../context/nodeData"
 // Components
 import LoadingPage from "../LoadingPage/LoadingPage";
 import TabSelector from "./TabSelector";
@@ -26,7 +27,9 @@ const Dashboard: React.FC<any> = ({ tab, setTab, dataReady }) => (
                     <AccountTab isOpen={tab === ACCOUNT_TAB} />
                 </AccountDataProvider>
                 <AdminTab isOpen={tab === ADMIN_TAB} />
-                <EnodeTab isOpen={tab === ENODE_TAB} />
+                <NodeDataProvider>
+                    <EnodeTab isOpen={tab === ENODE_TAB} />
+                </NodeDataProvider>
             </ToastProvider>
         )}
     </Fragment>

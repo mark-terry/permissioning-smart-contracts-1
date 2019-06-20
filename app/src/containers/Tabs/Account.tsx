@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import { drizzleReactHooks } from "drizzle-react";
 import { isAddress } from "web3-utils";
 // Context
-import { useData } from "../../context/data";
+import { useData } from "../../context/dashboardData";
+import { useAccountData } from "../../context/accountData";
 // Utils
 import useTab from "./useTab";
 // Components
@@ -23,7 +24,8 @@ type AccountTabContainerProps = {
 }
 
 const AccountTabContainer: React.FC<AccountTabContainerProps> = ({ isOpen }) => {
-    const { isAdmin, userAddress, account: {whitelist, isReadOnly} } = useData();
+    const { isAdmin, userAddress } = useData();
+    const { whitelist, isReadOnly } = useAccountData();
 
     const {
         list,

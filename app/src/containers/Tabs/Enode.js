@@ -3,7 +3,8 @@ import React from "react";
 import { drizzleReactHooks } from "drizzle-react";
 import PropTypes from "prop-types";
 // Context
-import { useData } from "../../context/data";
+import { useData } from "../../context/dashboardData";
+import { useNodeData } from "../../context/nodeData";
 // Utils
 import useTab from "./useTab";
 import {
@@ -27,11 +28,8 @@ import {
 } from "../../constants/transactions";
 
 const EnodeTabContainer = ({ isOpen }) => {
-    const {
-        isAdmin,
-        userAddress,
-        node: { whitelist, isReadOnly }
-    } = useData();
+    const { isAdmin, userAddress } = useData();
+    const { whitelist, isReadOnly } = useNodeData();
 
     const {
         list,
